@@ -1,5 +1,17 @@
-.body {
-    align-items: center;
+body {
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.my_clock {
+    color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .clock {
@@ -7,23 +19,45 @@
     border-radius: 50%;
     width: 30rem;
     height: 30rem;
-    
 }
 
 .clock-face {
+    position: relative; /* clock-face == relative so child == aboslute */ 
     width: 100%;
     height: 100%;
-    transform: translateY(-3px);
 }
 
 .hand {
-    background-color: black;
-    width: 50%;
-    height: 6px;
-    top: 50%;
     position: absolute;
-    transform-origin: 100%;
-    transform: rotate(90deg);
-    transition: all 0.05s;
+    left: 50%;
+}
+
+.hour-hand {
+    background-color: aqua;
+    height: 25%;
+    top: 25%;
+    width: 0.5%;
+    transform-origin: 0% 100%;
+    transition: 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.minute-hand {
+    background-color: yellow;
+    height: 40%; /* top and height add have to be 50% */
+    top: 10%;
+    width: 0.5%;
+    transform-origin: 0% 100%;
+    transition: 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.second-hand {
+    background-color: blueviolet;
+    height: 48%;
+    top: 2%;
+    width: 0.5%;
+    transform-origin: 0% 100%;
+    transition: 0.05s;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
